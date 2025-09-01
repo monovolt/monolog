@@ -1,0 +1,140 @@
+// 검색 기능 스타일
+.search-toggle {
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  font-size: 1.2em;
+  padding: 0.5rem;
+  
+  &:hover {
+    color: #007acc;
+  }
+}
+
+.search-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  padding: 2rem;
+}
+
+.search-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.search-input-wrapper {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+#search-input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  outline: none;
+  
+  &:focus {
+    border-color: #007acc;
+    box-shadow: 0 0 0 3px rgba(0, 122, 204, 0.1);
+  }
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  font-size: 1.2rem;
+}
+
+#search-results {
+  display: none;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.search-result-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
+  
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  h3 {
+    margin: 0 0 0.5rem 0;
+    
+    a {
+      color: #007acc;
+      text-decoration: none;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  
+  .search-meta {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .search-excerpt {
+    color: #333;
+    line-height: 1.5;
+    margin: 0;
+  }
+}
+
+.no-results {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  padding: 2rem;
+}
+
+.search-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 1.5rem;
+  cursor: pointer;
+  
+  &:hover {
+    color: #333;
+  }
+}
+
+// 반응형 디자인
+@media (max-width: 768px) {
+  .search-overlay {
+    padding: 1rem;
+  }
+  
+  .search-container {
+    padding: 1rem;
+  }
+  
+  #search-input {
+    font-size: 1rem;
+    padding: 0.8rem 0.8rem 0.8rem 2.5rem;
+  }
+}

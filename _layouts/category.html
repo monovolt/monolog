@@ -1,0 +1,47 @@
+---
+layout: default
+---
+
+<div class="category-page">
+  <h1 class="category-title">{{ page.title }} 카테고리</h1>
+  <p class="category-description">{{ page.description }}</p>
+  
+  <div class="category-posts">
+    {% raw %}{% for post in site.categories[page.category] %}
+    <article class="post-preview">
+      <header class="post-header">
+        <h2 class="post-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h2>
+        <p class="post-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">
+            {{ post.date | date: "%Y년 %m월 %d일" }}
+          </time>
+          {% if post.categories.size > 0 %}
+            | 카테고리: {{ post.categories | join: ", " }}
+          {% endif %}
+          {% if post.tags.size > 0 %}
+            | 태그: {{ post.tags | join: ", " }}
+          {% endif %}
+        </p>
+      </header>
+      
+      <div class="post-content">
+        {% if post.excerpt %}
+          {{ post.excerpt }}
+        {% else %}
+          {{ post.content | strip_html | truncatewords: 50 }}
+        {% endif %}
+      </div>
+      
+      <div class="post-footer">
+        <a href="{{ post.url | relative_url }}" class="read-more">계속 읽기 →</a>
+      </div>
+    </article>
+    {% endfor %}{% endraw %}
+  </div>
+  
+  <div class="category-navigation">
+    <a href="{{ site.baseurl }}/" class="back-home">← 홈으로 돌아가기</a>
+  </div>
+</div>

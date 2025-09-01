@@ -1,0 +1,16 @@
+<!-- 검색 오버레이 -->
+<div id="search-overlay" class="search-overlay">
+  <div class="search-container">
+    <button class="search-close" onclick="document.getElementById('search-overlay').style.display='none'">&times;</button>
+    
+    <div class="search-input-wrapper">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="블로그에서 검색하기..." autocomplete="off">
+    </div>
+    
+    <div id="search-results"></div>
+  </div>
+</div>
+
+<!-- 검색 스크립트 로드 -->
+<script src="{{ '/assets/js/search.js' | relative_url }}"></script>
